@@ -254,3 +254,8 @@ button > img{
   font-size: 48px;
   color: white;
 }
+
+#playerIcon{
+  width: 65px;
+  height: 55px;
+}
