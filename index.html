@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minotaur Holder</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="main">
+      <h1>Minotaur Holder</h1>
+      <div id="play-btn">
+        <img src="./assets/Play button.png" alt="" id="play-btn-img" />
+      </div>
+      <div id="instructions-container">
+        <img src="./assets/Instructions.png" alt="" id="instructions-btn-img" />
+      </div>
+    </div>
+  </body>
+  <script>
+    let instructBtn = document.getElementById("instructions-btn-img");
+    let currentUrl = window.location.href;
+    localStorage.setItem("backLink", currentUrl);
+
+    let playBtn = document.getElementById("play-btn-img");
+
+    playBtn.onclick = () => {
+      window.location.href = "./player.html";
+    };
+
+    instructBtn.onclick = () => {
+      window.location.href = "./instructions.html";
+    };
+  </script>
+</html>

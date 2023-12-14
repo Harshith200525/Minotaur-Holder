@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="main3">
+      <h1>Player Profile</h1>
+      <div id="submit-form">
+        <form id="inputForm">
+          <input type="text" placeholder="Name" id="name" />
+          <input type="text" placeholder="Nickname" id="nickname" />
+          <button type="submit" id="submitBtn">
+            <img src="./assets/submit button.png" alt="" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("inputForm").onsubmit = (e) => {
+      e.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let nickName = document.getElementById("nickname").value;
+
+      localStorage.setItem("name", name);
+      localStorage.setItem("nickName", nickName);
+      window.location.href = "./story.html"
+    };
+  </script>
+</html>

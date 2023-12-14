@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructions</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div id="main1">
+      <div id="opactiy"></div>
+      <div id="top-section">
+        <div class="imageBox">
+          <img src="./assets/home button.png" alt="" id="back-button-img"/>
+        </div>
+        <h1>Instructions to play the game</h1>
+        <div class="imageBox"></div>
+      </div>
+      <div id="bottom-section">
+        <div id="instruct-list">
+          <ul>
+            <li>
+              Player will start from a random location and should navigate way
+              to end location.
+            </li>
+            <li>
+              For each correct guess player is awarded with one point and
+              negated for each wrong guess.
+            </li>
+            <li>
+              The player should end the game with most amount of possible
+              points.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let backBtn = document.getElementById("back-button-img")
+    let backUrl = localStorage.getItem("backLink")
+
+    backBtn.onclick = () => {
+      window.location.href = backUrl
+    }
+  </script>
+</html>
