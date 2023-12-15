@@ -18,6 +18,12 @@ let scoreBoard = document.getElementById("points-counter");
 let points = 0;
 let playerPath = [];
 let i = 1;
+let instructBtn = document.getElementById("instructions-btn-img");
+let currentUrl = window.location.href;
+localStorage.setItem("backLink", currentUrl);
+let msgBox = document.getElementById("message");
+let resultBox = document.getElementById("result");
+let playAgain = document.getElementById("button")
 
 console.log(selectedPath);
 
@@ -31,6 +37,8 @@ elements.forEach((box) => {
         scoreBoard.innerText = points;
         i++;
         console.log(points);
+        resultBox.style.visibility = "visible";
+        msgBox.innerHTML = `${localStorage.getItem("nickName")} has won.....`;
       } else {
         document.getElementById(selectedPath[i - 1]).innerHTML = "";
         box.innerHTML = `<img src="./assets/minotaur (1).png" id="playerIcon">`;
@@ -41,9 +49,22 @@ elements.forEach((box) => {
     } else {
       points -= 1;
       scoreBoard.innerText = points;
+      let prevState = box.innerHTML;
+      box.innerHTML = `<img src="./assets/wrong.png" id="wrongIcon">`;
+      setTimeout(() => {
+        box.innerHTML = prevState;
+      }, 1500);
       if (points <= -5) {
         window.location.href = "./game.html";
       }
     }
   };
 });
+
+instructBtn.onclick = () => {
+  window.location.href = "./instructions.html";
+};
+
+playAgain.onclick = () => {
+  window.location.href = "./game.html"
+}
