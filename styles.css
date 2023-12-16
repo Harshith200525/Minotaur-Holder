@@ -68,6 +68,8 @@ body {
   height: 100%;
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #main > h1 {
@@ -214,9 +216,11 @@ button > img {
 #grid {
   display: grid;
   grid-template-columns: 98px 98px 98px 98px 98px 98px;
-  width: 60%;
+  width: 80%;
   height: fit-content;
   padding: 40px 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .cell-block {
@@ -229,12 +233,25 @@ button > img {
   align-items: center;
 }
 
+#currentPosition{
+  width: 300px;
+  height: 200px;
+  background-color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #sub-section {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding: 25px 25px;
-  width: 40%;
+  width: 20%;
+  height: 100%;
+  justify-content: space-between;
 }
 
 #points {
@@ -280,6 +297,8 @@ button > img {
   background-color: black;
   visibility: hidden;
   opacity: 0.9;
+  display: flex;
+  flex-direction: column;
 }
 
 #message {
@@ -298,4 +317,5 @@ button > img {
   font-size: 30px;
   opacity: 1;
   border-radius: 5px;
+  width: 175px;
 }
