@@ -23,25 +23,27 @@ let currentUrl = window.location.href;
 localStorage.setItem("backLink", currentUrl);
 let msgBox = document.getElementById("message");
 let resultBox = document.getElementById("result");
-let playAgain = document.getElementById("button")
-let endCell = document.getElementById(selectedPath[selectedPath.length-1])
-endCell.innerHTML = `<img src="./assets/out.png" id="outCell">`
-let displayPosition = document.getElementById("currentPosition")
-let modifiedPath = []
-for(let i = 0; i < selectedPath.length; i++){
-  if(selectedPath[i][0] == "1"){
-    modifiedPath.push(`a${selectedPath[i][1]}`)
-  }else if(selectedPath[i][0] == "2"){
-    modifiedPath.push(`b${selectedPath[i][1]}`)
-  }else if(selectedPath[i][0] == "3"){
-    modifiedPath.push(`c${selectedPath[i][1]}`)
-  }else if(selectedPath[i][0] == "4"){
-    modifiedPath.push(`d${selectedPath[i][1]}`)
-  }else if(selectedPath[i][0] == "5"){
-    modifiedPath.push(`e${selectedPath[i][1]}`)
+let playAgain = document.getElementById("button");
+let endCell = document.getElementById(selectedPath[selectedPath.length - 1]);
+endCell.innerHTML = `<img src="./assets/out.png" id="outCell">`;
+let displayPosition = document.getElementById("currentPosition");
+let modifiedPath = [];
+for (let i = 0; i < selectedPath.length; i++) {
+  if (selectedPath[i][0] == "1") {
+    modifiedPath.push(`a${selectedPath[i][1]}`);
+  } else if (selectedPath[i][0] == "2") {
+    modifiedPath.push(`b${selectedPath[i][1]}`);
+  } else if (selectedPath[i][0] == "3") {
+    modifiedPath.push(`c${selectedPath[i][1]}`);
+  } else if (selectedPath[i][0] == "4") {
+    modifiedPath.push(`d${selectedPath[i][1]}`);
+  } else if (selectedPath[i][0] == "5") {
+    modifiedPath.push(`e${selectedPath[i][1]}`);
   }
 }
-displayPosition.innerHTML = `<h1 id="presentCell">Postion: ${modifiedPath[i-1]}</h1>`
+displayPosition.innerHTML = `<h1 id="presentCell">Postion: ${
+  modifiedPath[i - 1]
+}</h1>`;
 
 console.log(selectedPath);
 
@@ -55,7 +57,9 @@ elements.forEach((box) => {
         scoreBoard.innerText = points;
         i++;
         resultBox.style.visibility = "visible";
-        msgBox.innerHTML = `${localStorage.getItem("nickName")} has completed the labyrinth with ${points} points.`;
+        msgBox.innerHTML = `${localStorage.getItem(
+          "nickName"
+        )} has completed the labyrinth with ${points} points.`;
       } else {
         document.getElementById(selectedPath[i - 1]).innerHTML = "";
         box.innerHTML = `<img src="./assets/minotaur (1).png" id="playerIcon">`;
@@ -76,7 +80,9 @@ elements.forEach((box) => {
         msgBox.innerHTML = `${localStorage.getItem("nickName")} has lost.`;
       }
     }
-    displayPosition.innerHTML = `<h1 id="presentCell">Position: ${modifiedPath[i-1]}</h1>`
+    displayPosition.innerHTML = `<h1 id="presentCell">Position: ${
+      modifiedPath[i - 1]
+    }</h1>`;
   };
 });
 
@@ -85,5 +91,5 @@ instructBtn.onclick = () => {
 };
 
 playAgain.onclick = () => {
-  window.location.href = "./game.html"
-}
+  window.location.href = "./game.html";
+};
