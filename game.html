@@ -5,51 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game</title>
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/game icon.png">
+    <link rel="icon" type="image/x-icon" href="./assets/game icon.png" />
     <style>
-      @media (max-width:600px){
-        #main4{
+      @media (max-width: 600px) {
+        #main4 {
           display: flex;
           flex-direction: column;
         }
-        #grid > div{
+        #grid > div {
           width: 50px;
           height: 50px;
         }
-        #grid{
+        #grid {
           width: fit-content;
           padding: 0px;
           grid-template-columns: 50px 50px 50px 50px 50px 50px;
         }
-        #currentPosition{
+        #currentPosition {
           width: 100px;
           height: 45px;
         }
-        #currentPosition > h1{
+        #currentPosition > h1 {
           font-size: 15px;
         }
-        #instructions-container > img{
+        #instructions-container > img {
           width: 50px;
           height: 50px;
         }
-        #outCell{
+        #outCell {
           width: 45px;
           height: 45px;
         }
-        #playerIcon{
+        #playerIcon {
           width: 45px;
           height: 45px;
         }
-        #message{
+        #message {
           font-size: 30px;
           margin-left: 15%;
         }
-        #result{
+        #result {
           display: flex;
           flex-direction: column;
           align-items: center;
         }
-        #sub-section{
+        #sub-section {
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -59,6 +59,9 @@
     </style>
   </head>
   <body>
+    <audio autoplay loop>
+      <source src="./assets/background-music.mp3">
+    </audio>
     <div id="main4">
       <div id="grid"></div>
       <div id="sub-section">
@@ -80,7 +83,6 @@
   </body>
 
   <script>
-
     function makingGrid() {
       let grid = document.getElementById("grid");
 

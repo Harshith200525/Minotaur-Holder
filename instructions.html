@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instructions</title>
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/game icon.png">
+    <link rel="icon" type="image/x-icon" href="./assets/game icon.png" />
     <style>
-      @media (max-width: 600px){
-      #instruct-list > ul{
-        font-size: 13px;
-        line-height: 35px;
+      @media (max-width: 600px) {
+        #instruct-list > ul {
+          font-size: 13px;
+          line-height: 35px;
+        }
+        #top-section > h1 {
+          font-size: 35px;
+        }
       }
-      #top-section > h1{
-        font-size: 35px;
-      }
-    }
     </style>
   </head>
   <body>
@@ -23,7 +23,7 @@
       <div id="opactiy"></div>
       <div id="top-section">
         <div class="imageBox">
-          <img src="./assets/home button.png" alt="" id="back-button-img"/>
+          <img src="./assets/home button.png" alt="" id="back-button-img" />
         </div>
         <h1 id="instruct-h1">Instructions to play the game</h1>
         <div class="imageBox"></div>
@@ -43,17 +43,21 @@
               The player should end the game with most amount of possible
               points.
             </li>
+            <li>
+              The player can navigate through the labyrinth by clicking on a
+              box.
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </body>
   <script>
-    let backBtn = document.getElementById("back-button-img")
-    let backUrl = localStorage.getItem("backLink")
+    let backBtn = document.getElementById("back-button-img");
+    let backUrl = localStorage.getItem("backLink");
 
     backBtn.onclick = () => {
-      window.location.href = backUrl
-    }
+      window.location.href = backUrl;
+    };
   </script>
 </html>

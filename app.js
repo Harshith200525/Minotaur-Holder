@@ -2,6 +2,11 @@ function randomPath() {
   let paths = [
     ["15", "25", "24", "34", "33", "43", "42"],
     ["23", "33", "34", "35", "25", "15"],
+    ["15","14","13","12","22","23","33","34","35","45","55"],
+    ["11","12","13","14","15","25","24","23","22","21","31","32","33","34","35","45","55"],
+    ["33","43","42","32","22","21","31","41","51","52","53","54","44","34","24","25","15"],
+    ["24","14","15","25","35","45","55","54","53","52","51","41","31","21","11","12","22","23"],
+
   ];
 
   let randomNum = Math.floor(Math.random() * paths.length);
@@ -28,6 +33,10 @@ let endCell = document.getElementById(selectedPath[selectedPath.length - 1]);
 endCell.innerHTML = `<img src="./assets/out.png" id="outCell">`;
 let displayPosition = document.getElementById("currentPosition");
 let modifiedPath = [];
+let doorClosing = new Audio("./assets/door-closing.wav");
+let losingSound = new Audio("./assets/losing.wav");
+let victorySound = new Audio("./assets/victory.wav");
+
 for (let i = 0; i < selectedPath.length; i++) {
   if (selectedPath[i][0] == "1") {
     modifiedPath.push(`a${selectedPath[i][1]}`);
@@ -41,11 +50,9 @@ for (let i = 0; i < selectedPath.length; i++) {
     modifiedPath.push(`e${selectedPath[i][1]}`);
   }
 }
-displayPosition.innerHTML = `<h1 id="presentCell">Postion: ${
+displayPosition.innerHTML = `<h1 id="presentCell">Position: ${
   modifiedPath[i - 1]
 }</h1>`;
-
-console.log(selectedPath);
 
 elements.forEach((box) => {
   box.onclick = () => {
@@ -60,12 +67,17 @@ elements.forEach((box) => {
         msgBox.innerHTML = `${localStorage.getItem(
           "nickName"
         )} has completed the labyrinth with ${points} points.`;
+        victorySound.play()
       } else {
         document.getElementById(selectedPath[i - 1]).innerHTML = "";
         box.innerHTML = `<img src="./assets/minotaur (1).png" id="playerIcon">`;
         points += 1;
         scoreBoard.innerText = points;
         i++;
+        doorClosing.pause()
+        doorClosing.currentTime = 0
+        doorClosing.volume = 0.3
+        doorClosing.play()
       }
     } else {
       points -= 1;
@@ -75,9 +87,10 @@ elements.forEach((box) => {
       setTimeout(() => {
         box.innerHTML = prevState;
       }, 1500);
-      if (points <= -10) {
+      if (points <= -5) {
         resultBox.style.visibility = "visible";
         msgBox.innerHTML = `${localStorage.getItem("nickName")} has lost.`;
+        losingSound.play()
       }
     }
     displayPosition.innerHTML = `<h1 id="presentCell">Position: ${
